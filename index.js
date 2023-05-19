@@ -1,8 +1,9 @@
-const fs = require("fs");
+const http = require("http");
 
-console.log("start program");
-
-const note = fs.readFileSync("./node.txt");
-console.log(note.toString());
-
-console.log("end program");
+http
+  .createServer((req, res) => {
+    res.end("Hello Nodjs");
+  })
+  .listen(4000, () => {
+    console.log("Server is running on port 4000");
+  });
